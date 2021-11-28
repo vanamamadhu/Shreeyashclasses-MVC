@@ -22,6 +22,8 @@ namespace Shreeyashclasses.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            TempData["Status"] = "";
+            TempData["Message"] = "";
             return View();
         }
 
@@ -47,10 +49,14 @@ namespace Shreeyashclasses.Controllers
                 }
                 else
                 {
+                    TempData["Status"] = "Error";
+                    TempData["Message"] = "User Name and Password does not exist";
                     return View();
                 }
             }
             else {
+                TempData["Status"] = "Error";
+                TempData["Message"] = "Please enter UserName/Password";
                 return View();
             }
         }
@@ -58,6 +64,8 @@ namespace Shreeyashclasses.Controllers
         [HttpGet]
         public ActionResult NewUser()
         {
+            TempData["Status"] = "";
+            TempData["Message"] = "";
             return View();
         }
 

@@ -4,11 +4,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery.validate.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/otherjs")
 </head>
 <body>
     <div class="row" style="--bs-gutter-x: 0px !important;">
@@ -55,20 +54,15 @@
             </footer>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           if ('@TempData["Status"]' == "Success"){
+                toastr.success('@TempData["Message"]');
+            }
+            if ('@TempData["Status"]' == "Error"){
+                toastr.error('@TempData["Message"]');
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-@*<div class="w-25">
-        <div class="well lftmenucolor" style="height:480px;width:85%;">
-            <ul class="nav nav-list">
-                <li style="line-height:30px">@Html.ActionLink("Home", "UserDashboard", "Dashboard")</li>
-                <li style="line-height:30px">@Html.ActionLink("Schedule Exam", "", "Admin")</li>
-                <li style="line-height:30px">@Html.ActionLink("Add Questions", "", "Admin")</li>
-                <li style="line-height:30px">@Html.ActionLink("viewquestion", "", "Admin", new { readOnly = false }, new { style = "border-bottom: 3px Solid #7aaa7a;" })</li>
-            </ul>
-        </div>
-    </div>
-    <div class="w-75">
-        @RenderBody()
-    </div>*@
