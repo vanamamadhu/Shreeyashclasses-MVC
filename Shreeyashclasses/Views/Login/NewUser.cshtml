@@ -1,0 +1,87 @@
+﻿@model Shreeyashclasses.Models.User
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Common.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <title>Shree Yash Classes Login</title>
+</head>
+<body class="login-background">
+    @using (Html.BeginForm("NewUser", "Login", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+    {
+
+        <div class="row">
+            <nav class="navbar" style="background-color:black">
+                <div class="container-fluid">
+                    <img src="~/assets/images/shreeyash_logo.jpg" style="height: 90px; width:230px" />
+                </div>
+            </nav>
+            <div class="row ms-5 mt-5">
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Name</label>
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Sure Name</label>
+                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+            </div>
+            <div class="row ms-5 mt-3">
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">Phone Number</label>
+                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Address</label>
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+            </div>
+            <div class="row ms-5 mt-3">
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* User Name</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Password</label>
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control col-12", autofocus = "autofocus", type = "password" })
+                </div>
+            </div>
+            <div class="row ms-5 mt-3">
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Class</label>
+                    @Html.DropDownListFor(m => m.Class, new List<SelectListItem>
+                                                        {
+                                                            new SelectListItem{ Text="5th", Value = "5th" },
+                                                            new SelectListItem{ Text="6th", Value = "6th" },
+                                                            new SelectListItem{ Text="7th", Value = "7th" },
+                                                            new SelectListItem{ Text="8th", Value = "8th" },
+                                                            new SelectListItem{ Text="9th", Value = "9th" },
+                                                            new SelectListItem{ Text="10th", Value = "10th" }
+                    }, "Select Class", new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+                <div class="col-5">
+                    <label for="inputEmail4" class="form-label">* Role</label>
+                    @Html.DropDownListFor(m => m.Role, new List<SelectListItem>
+                                                        {
+                                                            new SelectListItem{ Text="Teacher", Value = "Teacher" },
+                                                            new SelectListItem{ Text="Student", Value = "Student" }
+                    }, "Select Role", new { @class = "form-control col-12", autofocus = "autofocus" })
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mt-3 float-end">
+            <input type="submit" class="btn btn-primary w-25" value="Create" />
+            <span class="btn btn-primary">@Html.ActionLink("Back", "Login", "Login", null, new { style = "color: White !important" })</span>
+        </div>
+    }
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div class="row" style="--bs-gutter-x: 0px !important;">
+        <nav class="navbar" style="background-color:black">
+            <div class="container-fluid">
+                <img src="~/assets/images/shreeyash_logo.jpg" style="height: 90px; width:230px" />
+                <form class="d-flex">
+                    <i class="fa fa-sign-out" aria-hidden="true" style="color:white; margin-right:5px;font-size:30px;"></i>
+                    <span style="color:white; float:right; margin-right:25px">@Html.ActionLink("Logout", "Login", "Login")</span>
+                </form>
+            </div>
+        </nav>
+        <div class="row" style="min-height:400px">
+            <div style="width: 15%; margin-top: 12px;">
+                <ul class="nav flex-column" style="background-color: black; min-height:500px">
+                    @if (Session["Role"].ToString() == "Teacher")
+                    {
+                        <li class="nav-link"><i class="fa fa-home" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Home", "AdminDashboard", "Dashboard")</li>
+                        <li class="nav-link"><i class="fa fa-calendar-check-o" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Schedule Exam", "", "Admin")</li>
+                        <li class="nav-link"><i class="fa fa-plus" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Add Questions", "", "Admin")</li>
+                        <li class="nav-link"><i class="fa fa-question" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("viewquestion", "", "Admin")</li>
+                    }
+                    @if (Session["Role"].ToString() == "Student")
+                    {
+                        <li class="nav-link"><i class="fa fa-home" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Home", "UserDashboard", "Dashboard")</li>
+                    }
+
+                </ul>
+            </div>
+            <div style="width:85%;margin-top:12px">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <footer>
+                <div class="content-wrapper">
+                    <div class="footerbgimg" style="color:blue">
+                        <div>
+                            Copyright &copy;
+                            <p style="float:right;color:blue">Designed and Developed by <a href="#">Madhu.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+
+
+@*<div class="w-25">
+        <div class="well lftmenucolor" style="height:480px;width:85%;">
+            <ul class="nav nav-list">
+                <li style="line-height:30px">@Html.ActionLink("Home", "UserDashboard", "Dashboard")</li>
+                <li style="line-height:30px">@Html.ActionLink("Schedule Exam", "", "Admin")</li>
+                <li style="line-height:30px">@Html.ActionLink("Add Questions", "", "Admin")</li>
+                <li style="line-height:30px">@Html.ActionLink("viewquestion", "", "Admin", new { readOnly = false }, new { style = "border-bottom: 3px Solid #7aaa7a;" })</li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-75">
+        @RenderBody()
+    </div>*@
