@@ -1,0 +1,32 @@
+﻿@model List<Shreeyashclasses.Models.Question>
+
+@{
+    ViewBag.Title = "ViewQuestion";
+    Layout = "~/Views/_Layout.cshtml";
+    WebGrid webGrid = new WebGrid(Model, canPage: true, rowsPerPage: 20, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "grid");
+}
+
+<h2 class="text-center">All Questions</h2>
+<div class="ms-5 mt-3">
+    @webGrid.GetHtml(
+        tableStyle: "webGrid", mode: WebGridPagerModes.All,
+        firstText: "<< First",
+        previousText: "< Prev",
+        nextText: "Next >",
+        lastText: "Last >>",
+        headerStyle: "header",
+        alternatingRowStyle: "webgrid-alternating-row",
+        selectedRowStyle: "webgrid-selected-row",
+        rowStyle: "webgrid-row-style",
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+                 webGrid.Column("QuestionName", "Customer Id"),
+                 webGrid.Column("Answer", "Answer"),
+                 webGrid.Column("CreatedDate", "Created Date"),
+                 webGrid.Column(header: "Edit", format: @<button class="btn btn-info">Edit</button>),
+                 webGrid.Column(header: "Delete", format: @<button class="btn btn-primary">Delete</button>)
+    ))
+</div>
+
+
+

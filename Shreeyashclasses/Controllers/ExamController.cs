@@ -17,7 +17,7 @@ namespace Shreeyashclasses.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddQuestion(Questions newQuestion)
+        public ActionResult AddQuestion(Question newQuestion)
         {
             return View();
         }
@@ -25,18 +25,18 @@ namespace Shreeyashclasses.Controllers
         [HttpGet]
         public ActionResult viewQuestion()
         {
-            List<Questions> listofQuestions = new List<Questions>();
+            List<Question> listofQuestions = new List<Question>();
             return View(listofQuestions);
         }
 
         [HttpPost]
-        public bool UpdateQuestion(Questions newQuestion)
+        public bool UpdateQuestion(Question newQuestion)
         {
             return true;
         }
 
         [HttpPost]
-        public bool DeleteQuestion(Questions newQuestion)
+        public bool DeleteQuestion(Question newQuestion)
         {
             return true;
         }

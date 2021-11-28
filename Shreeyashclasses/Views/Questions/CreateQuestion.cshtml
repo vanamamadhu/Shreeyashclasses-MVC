@@ -1,9 +1,54 @@
-﻿@model Shreeyashclasses.Models.Questions
+﻿@model Shreeyashclasses.Models.Question
 
 @{
     ViewBag.Title = "CreateQuestion";
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<h2>CreateQuestion</h2>
+@using (Html.BeginForm("CreateQuestion", "Questions", FormMethod.Post, new { @class = "", enctype = "multipart/form-data" }))
+{
+    <h3>Add New Question Here!</h3>
+    <div class="row g-3 align-items-center">
+        <div class="mb-3">
+            <label for="disabledTextInput" class="form-label">* Question</label>
+            @Html.TextAreaFor(m => m.QuestionName, new { @class = "form-control col-12", autofocus = "autofocus" })
+        </div>
+        <div class="row ms-0 mt-3">
+            <div class="col-6">
+                <label for="disabledTextInput" class="form-label">* Option One</label>
+                @Html.TextBoxFor(m => m.OptionOne, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="col-6">
+                <label for="disabledTextInput" class="form-label">* Option Two</label>
+                @Html.TextBoxFor(m => m.OptionTwo, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+
+        </div>
+        <div class="row ms-0 mt-3">
+            <div class="col-6">
+                <label for="disabledTextInput" class="form-label">* Option Three</label>
+                @Html.TextBoxFor(m => m.OptionThree, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="col-6">
+                <label for="disabledTextInput" class="form-label">* Option Four</label>
+                @Html.TextBoxFor(m => m.OptionFour, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+        </div>
+        <div class="row ms-0 mt-3">
+            <label for="disabledTextInput" class="form-label">* Select Answer</label>
+            <div class="row">
+                @Html.RadioButtonFor(m => m.Answer, "Option One", new { @class = "col-1", style="height:1.4em" })Option One
+
+                @Html.RadioButtonFor(m => m.Answer, "Option Two", new { @class = "col-1", style = "height:1.4em" })Option Two
+
+                @Html.RadioButtonFor(m => m.Answer, "Option Three", new { @class = "col-1", style = "height:1.4em" })Option Three
+
+                @Html.RadioButtonFor(m => m.Answer, "Option Four", new { @class = "col-1", style = "height:1.4em" })Option Four
+            </div>
+        </div>
+        <div class="col-3 mt-3 float-end">
+            <input type="submit" class="btn btn-primary w-25" value="Create" />
+        </div>
+    </div>
+}
 

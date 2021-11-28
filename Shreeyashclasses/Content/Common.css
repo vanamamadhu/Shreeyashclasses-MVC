@@ -2,3 +2,50 @@
     background-image: url(../../assets/images/bg-01.jpg);
     width: fit-content
 }
+
+.webgrid-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border: solid 1px #98BF21;
+    background-color: white;
+}
+
+    .webgrid-table td, th {
+        border: 1px solid #98BF21;
+        padding: 3px 7px 2px;
+    }
+
+.webgrid-header {
+    background-color: #A7C942;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.webgrid-footer {
+}
+
+.webGrid > thead > tr {
+    text-align:center;
+}
+
+.webgrid-row-style {
+    padding: 3px 7px 2px;
+}
+
+.webgrid-row-style td{
+    width: 180px;
+}
+
+.webgrid-row-style > td:first-child {
+    width: 550px;
+}
+
+.webgrid-alternating-row {
+    background-color: #EAF2D3;
+    padding: 3px 7px 2px;
+}

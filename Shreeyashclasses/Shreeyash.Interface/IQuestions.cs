@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shreeyashclasses.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace Shreeyashclasses.Shreeyash.Interface
 {
     public interface IQuestions
     {
+        bool InsertNewQuestion(Question newQuestion);
+        List<Question> GetQuestions();
     }
 }

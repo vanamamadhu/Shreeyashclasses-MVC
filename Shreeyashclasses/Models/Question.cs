@@ -6,10 +6,10 @@ using System.Web;
 
 namespace Shreeyashclasses.Models
 {
-    public class Questions
+    public class Question
     {
         [Required]
-        public string Question { get; set; }
+        public string QuestionName { get; set; }
 
         [Required]
         public string OptionOne { get; set; }
