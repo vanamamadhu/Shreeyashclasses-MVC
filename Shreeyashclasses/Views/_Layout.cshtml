@@ -26,9 +26,9 @@
                     @if (Session["Role"].ToString() == "Teacher")
                     {
                         <li class="nav-link"><i class="fa fa-home" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Home", "AdminDashboard", "Dashboard")</li>
-                        <li class="nav-link"><i class="fa fa-calendar-check-o" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Schedule Exam", "", "Admin")</li>
-                        <li class="nav-link"><i class="fa fa-plus" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Add Questions", "", "Admin")</li>
-                        <li class="nav-link"><i class="fa fa-question" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("viewquestion", "", "Admin")</li>
+                        <li class="nav-link"><i class="fa fa-calendar-check-o" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Schedule Exam", "", "Exam")</li>
+                        <li class="nav-link"><i class="fa fa-plus" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Add Questions", "CreateQuestion", "Question")</li>
+                        <li class="nav-link"><i class="fa fa-question" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("viewquestion", "ViewQuestion", "Question")</li>
                     }
                     @if (Session["Role"].ToString() == "Student")
                     {

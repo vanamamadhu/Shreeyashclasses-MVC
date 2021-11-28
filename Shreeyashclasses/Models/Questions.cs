@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,16 +8,22 @@ namespace Shreeyashclasses.Models
 {
     public class Questions
     {
+        [Required]
         public string Question { get; set; }
 
+        [Required]
         public string OptionOne { get; set; }
 
+        [Required]
         public string OptionTwo { get; set; }
 
+        [Required]
         public string OptionThree { get; set; }
 
+        [Required]
         public string OptionFour { get; set; }
 
+        [Required]
         public string Answer { get; set; }
 
         public DateTime CreatedDate { get; set; }

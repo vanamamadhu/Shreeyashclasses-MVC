@@ -224,6 +224,8 @@
     <Content Include="Views\Dashboard\UserDashboard.cshtml" />
     <Content Include="Views\Dashboard\AdminDashboard.cshtml" />
     <Content Include="Views\Login\NewUser.cshtml" />
+    <Content Include="Views\Questions\CreateQuestion.cshtml" />
+    <Content Include="Views\Exam\viewQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,8 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Exam\" />
-    <Folder Include="Views\Questions\" />
     <Folder Include="Views\Registration\" />
   </ItemGroup>
   <PropertyGroup>
