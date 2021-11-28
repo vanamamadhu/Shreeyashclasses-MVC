@@ -30,7 +30,8 @@ namespace Shreeyashclasses.Shreeyash.DAC
             catch (Exception ex)
             {
                 connection.Close();
-                throw ex;
+                //here we can inplement custom exception for trach the error/issues
+                return false;
             }
         }
 

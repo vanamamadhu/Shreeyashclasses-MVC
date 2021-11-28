@@ -42,7 +42,7 @@ namespace Shreeyashclasses.Shreeyash.DAC
                 if (count == 0)
                 {
                     connection.Close();
-                    return new User();
+                    return null;
                 }
                 else
                 {
@@ -53,7 +53,8 @@ namespace Shreeyashclasses.Shreeyash.DAC
             catch (Exception ex)
             {
                 connection.Close();
-                throw ex;
+                //here we can inplement custom exception for trach the error/issues
+                return null;
             }
             
         }

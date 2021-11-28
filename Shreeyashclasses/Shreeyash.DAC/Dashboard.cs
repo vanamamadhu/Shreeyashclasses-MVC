@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Shreeyashclasses.Shreeyash.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace Shreeyashclasses.Shreeyash.DAC
 {
-    public class Ddashboard
+    public class Dashboard : IDashboard
     {
     }
 }

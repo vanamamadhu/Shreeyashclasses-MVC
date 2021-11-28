@@ -181,7 +181,7 @@
     <Compile Include="Models\Questions.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shreeyash.DAC\Ddashboard.cs" />
+    <Compile Include="Shreeyash.DAC\Dashboard.cs" />
     <Compile Include="Shreeyash.DAC\Exam.cs" />
     <Compile Include="Shreeyash.DAC\Questions.cs" />
     <Compile Include="Shreeyash.Interface\IDashboard.cs" />

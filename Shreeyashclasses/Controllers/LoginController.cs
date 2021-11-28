@@ -77,7 +77,7 @@ namespace Shreeyashclasses.Controllers
                 bool IsSuccess= _registration.CreateUser(user);
                 if (IsSuccess) {
                     TempData["Status"] = "Error";
-                    TempData["Message"] = "Fields marked with an asterisk * are required";
+                    TempData["Message"] = "Somthing went wrong!";
                 }
                 else {
                     TempData["Status"] = "Success";
