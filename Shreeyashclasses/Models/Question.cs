@@ -8,6 +8,7 @@ namespace Shreeyashclasses.Models
 {
     public class Question
     {
+        public int Id { get; set; }
         [Required]
         public string QuestionName { get; set; }
 

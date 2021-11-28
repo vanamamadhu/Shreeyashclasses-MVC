@@ -49,6 +49,7 @@ namespace Shreeyashclasses.Shreeyash.DAC
                 while (reader.Read())
                 {
                     Question question = new Question();
+                    question.Id = Convert.ToInt32(reader["ID"]);
                     question.QuestionName = reader["QUESTION"] as string;
                     question.OptionOne = reader["OPTIONONE"] as string;
                     question.OptionTwo = reader["OPTIONTWO"] as string;
@@ -68,6 +69,50 @@ namespace Shreeyashclasses.Shreeyash.DAC
                 {
                     connection.Close();
                     return listofQuestions;
+                }
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                //here we can inplement custom exception for trach the error/issues
+                return null;
+            }
+        }
+
+        public Question GetQuestion(int Id)
+        {
+            try
+            {
+                List<Question> listofQuestions = new List<Question>();
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\ShreeyasDataBase\\ShreeyashclassesDB.accdb") + ";Persist Security Info=False;";
+                connection.Open();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "Select * from Questions where ID=" + Id;
+
+                OleDbDataReader reader = command.ExecuteReader();
+                Question question = new Question();
+                while (reader.Read())
+                {
+                    question.Id = Convert.ToInt32(reader["ID"]);
+                    question.QuestionName = reader["QUESTION"] as string;
+                    question.OptionOne = reader["OPTIONONE"] as string;
+                    question.OptionTwo = reader["OPTIONTWO"] as string;
+                    question.OptionThree = reader["OPTIONTHREE"] as string;
+                    question.OptionFour = reader["OPTIONFOUR"] as string;
+                    question.Answer = reader["ANSWER"] as string;
+                    question.CreatedDate = Convert.ToDateTime(reader["CREATEDDATE"]);
+                    question.ModifiedDate = Convert.ToDateTime(reader["MoDIFIEDDATE"]);
+                }
+                if (question == null)
+                {
+                    connection.Close();
+                    return null;
+                }
+                else
+                {
+                    connection.Close();
+                    return question;
                 }
             }
             catch (Exception ex)

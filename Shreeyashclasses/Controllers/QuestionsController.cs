@@ -17,10 +17,18 @@ namespace Shreeyashclasses.Controllers
         }
         // GET: Questions
         [HttpGet]
-        public ActionResult CreateQuestion()
+        public ActionResult CreateQuestion(int Id = 0)
         {
             TempData["Status"] = "";
             TempData["Message"] = "";
+            
+            ViewBag.IsUpdate = false;
+            if (Id != 0) {
+                Question viewQuestion = new Question();
+                ViewBag.IsUpdate = true;
+                viewQuestion = _questions.GetQuestion(Id);
+                return View(viewQuestion);
+            }
             return View();
         }
 
@@ -50,6 +58,17 @@ namespace Shreeyashclasses.Controllers
         {
             List<Question> viewallQuestions = _questions.GetQuestions();
             return View(viewallQuestions);
+        }
+
+        [HttpGet]
+        public Question GetQuestion(int Id)
+        {
+            Question viewQuestions = _questions.GetQuestion(Id);
+            return viewQuestions;
+        }
+        [HttpGet]
+        public void DeleteQuestion(int Id)
+        {
         }
     }
 }
