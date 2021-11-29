@@ -50,7 +50,7 @@ namespace Shreeyashclasses.Controllers
                 {
                     TempData["Status"] = "Success";
                     TempData["Message"] = "New question added successfully";
-                    newQuestions = null;
+                    ModelState.Clear();
                 }
                 else {
                     TempData["Status"] = "Error";
