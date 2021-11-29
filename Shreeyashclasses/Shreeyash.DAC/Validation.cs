@@ -19,7 +19,6 @@ namespace Shreeyashclasses.Shreeyash.DAC
         {
             try
             {
-                int count = 1;
                 connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\ShreeyasDataBase\\ShreeyashclassesDB.accdb") + ";Persist Security Info=False;";
                 connection.Open();
                 OleDbCommand command = new OleDbCommand();
