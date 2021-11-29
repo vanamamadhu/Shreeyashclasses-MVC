@@ -1,4 +1,4 @@
-﻿using Shreeyashclasses.Models;
+﻿    using Shreeyashclasses.Models;
 using Shreeyashclasses.Shreeyash.Interface;
 using System;
 using System.Collections.Generic;
@@ -35,28 +35,37 @@ namespace Shreeyashclasses.Controllers
         [HttpPost]
         public ActionResult CreateQuestion(Question newQuestions)
         {
-            if (ModelState.IsValid) {
+            ViewBag.IsUpdate = false;
+            if (ModelState.IsValid)
+            {
                 bool IsSuccess = false;
+                string message;
                 if (newQuestions.Id > 0)
                 {
                     IsSuccess = UpdateQuestion(newQuestions);
                     ViewBag.IsUpdate = true;
+                    message = "Question updated successfully";
                 }
-                else {
+                else
+                {
                     IsSuccess = AddNewQuestion(newQuestions);
-                    ViewBag.IsUpdate = false;
+                    message = "New question added successfully";
                 }
                 if (IsSuccess)
                 {
                     TempData["Status"] = "Success";
-                    TempData["Message"] = "New question added successfully";
-                    newQuestions = null;
-                    ModelState.Clear();
+                    TempData["Message"] = message;
+                    return RedirectToAction("ViewQuestion", "Questions");
                 }
-                else {
+                else
+                {
                     TempData["Status"] = "Error";
                     TempData["Message"] = "Somthing went wrong!";
                 }
+            }
+            else {
+                TempData["Status"] = "Error";
+                TempData["Message"] = "Fields marked with an asterisk * are required";
             }
             return View(newQuestions);
         }
