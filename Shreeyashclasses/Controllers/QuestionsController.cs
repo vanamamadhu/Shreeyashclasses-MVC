@@ -82,13 +82,12 @@ namespace Shreeyashclasses.Controllers
             {
                 TempData["Status"] = "Success";
                 TempData["Message"] = "Record deleted successfully";
-                return RedirectToAction("ViewQuestion", "Questions");
             }
             else {
                 TempData["Status"] = "Error";
                 TempData["Message"] = "Somthing went wrong!";
-                return View();
             }
+            return RedirectToAction("ViewQuestion", "Questions");
         }
 
         private bool AddNewQuestion(Question newQuestions) {
