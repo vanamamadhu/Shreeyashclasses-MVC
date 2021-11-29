@@ -74,18 +74,19 @@ namespace Shreeyashclasses.Controllers
             return viewQuestions;
         }
         [HttpGet]
-        public void DeleteQuestion(int Id)
+        public ActionResult DeleteQuestion(int Id)
         {
-            
             bool IsSuccess = _questions.DeleteQuestion(Id);
             if (IsSuccess)
             {
                 TempData["Status"] = "Success";
                 TempData["Message"] = "Record deleted successfully";
+                return RedirectToAction("CreateQuestion", "Questions");
             }
             else {
                 TempData["Status"] = "Error";
                 TempData["Message"] = "Somthing went wrong!";
+                return RedirectToAction("ViewQuestion", "Questions"); ;
             }
         }
 
