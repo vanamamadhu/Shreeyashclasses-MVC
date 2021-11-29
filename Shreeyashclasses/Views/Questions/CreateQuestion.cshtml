@@ -47,14 +47,7 @@
             </div>
         </div>
         <div class="col-3 mt-3 float-end">
-            @if (@ViewBag.IsUpdate)
-            {
-                <input type="submit" class="btn btn-primary w-25" value="Update" />
-            }
-            else
-            {
-                <input type="submit" class="btn btn-primary w-25" value="Create" />
-            }
+            <input type="submit" class="btn btn-primary" value="@(@ViewBag.IsUpdate ? "Update" : "Create")" />
         </div>
     </div>
 }
