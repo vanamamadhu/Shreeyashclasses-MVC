@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Shreeyashclasses.Shreeyash.DAC
 {
-    public class Constant
+    public static class DBConstant
     {
-        public string CheckUserQuery { get; set; }
+        public static string CheckUserQuery = @"";
 
-        public string InsertUserQuery { get; set; }
+        public static string InsertUserQuery = @"";
     }
 }
