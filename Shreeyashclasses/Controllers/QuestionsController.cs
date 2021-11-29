@@ -36,9 +36,16 @@ namespace Shreeyashclasses.Controllers
         public ActionResult CreateQuestion(Question newQuestions)
         {
             if (ModelState.IsValid) {
-                newQuestions.CreatedDate = DateTime.Now;
-                newQuestions.ModifiedDate = DateTime.Now;
-                bool IsSuccess = _questions.InsertNewQuestion(newQuestions);
+                bool IsSuccess = false;
+                if (newQuestions.Id > 0)
+                {
+                    IsSuccess = UpdateQuestion(newQuestions);
+                    ViewBag.IsUpdate = true;
+                }
+                else {
+                    IsSuccess = AddNewQuestion(newQuestions);
+                    ViewBag.IsUpdate = false;
+                }
                 if (IsSuccess)
                 {
                     TempData["Status"] = "Success";
@@ -69,6 +76,29 @@ namespace Shreeyashclasses.Controllers
         [HttpGet]
         public void DeleteQuestion(int Id)
         {
+            
+            bool IsSuccess = _questions.DeleteQuestion(Id);
+            if (IsSuccess)
+            {
+                TempData["Status"] = "Success";
+                TempData["Message"] = "Record deleted successfully";
+            }
+            else {
+                TempData["Status"] = "Error";
+                TempData["Message"] = "Somthing went wrong!";
+            }
+        }
+
+        private bool AddNewQuestion(Question newQuestions) {
+            newQuestions.CreatedDate = DateTime.Now;
+            newQuestions.ModifiedDate = DateTime.Now;
+            return _questions.InsertNewQuestion(newQuestions);
+        }
+
+        private bool UpdateQuestion(Question newQuestions)
+        {
+            newQuestions.ModifiedDate = DateTime.Now;
+            return _questions.UpdateQuestion(newQuestions);
         }
     }
 }

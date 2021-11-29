@@ -12,5 +12,7 @@ namespace Shreeyashclasses.Shreeyash.Interface
         bool InsertNewQuestion(Question newQuestion);
         List<Question> GetQuestions();
         Question GetQuestion(int Id);
+        bool DeleteQuestion(int Id);
+        bool UpdateQuestion(Question newQuestions);
     }
 }

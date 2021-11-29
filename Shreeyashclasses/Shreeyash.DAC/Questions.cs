@@ -122,5 +122,50 @@ namespace Shreeyashclasses.Shreeyash.DAC
                 return null;
             }
         }
+
+        public bool DeleteQuestion(int Id)
+        {
+            try
+            {
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\ShreeyasDataBase\\ShreeyashclassesDB.accdb") + ";Persist Security Info=False;";
+                connection.Open();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "Delete from Questions where ID =" + Id;
+                var result = command.ExecuteNonQuery();
+                connection.Close();
+                return result == 0 ? false : true;
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                //here we can inplement custom exception for trach the error/issues
+                return false;
+            }
+        }
+
+        public bool UpdateQuestion(Question newQuestion)
+        {
+            try
+            {
+                connection.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\\ShreeyasDataBase\\ShreeyashclassesDB.accdb") + ";Persist Security Info=False;";
+                connection.Open();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "UPDATE Questions SET"+
+                    " QUESTION ='"+ newQuestion.QuestionName +"',OPTIONONE = '"+ newQuestion.OptionOne +"',OPTIONTWO = '"+ newQuestion.OptionTwo +"',OPTIONTHREE = '"+ newQuestion.OptionThree +
+                    "' ,OPTIONFOUR ='"+ newQuestion.OptionFour +"',ANSWER = '"+ newQuestion.Answer +"',CREATEDDATE = '"+ newQuestion.CreatedDate +"',MODIFIEDDATE = '"+ newQuestion.ModifiedDate +
+                    "' where ID = " + newQuestion.Id;
+                var result = command.ExecuteNonQuery();
+                connection.Close();
+                return result == 0 ? false : true;
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                //here we can inplement custom exception for trach the error/issues
+                return false;
+            }
+        }
     }
 }

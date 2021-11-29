@@ -24,7 +24,7 @@
                  webGrid.Column("Answer", "Answer"),
                  webGrid.Column("CreatedDate", "Created Date"),
                  webGrid.Column(header: "Edit", format: item => Html.ActionLink("Edit", "CreateQuestion", new { Id = item.Id })),
-                 webGrid.Column(header: "Delete", format: item => Html.ActionLink("Delete", "DeleteQuestion", new { Id = item.Id }, new { target = "_blank" }))
+                 webGrid.Column(header: "Delete", format: item => Html.ActionLink("Delete", "DeleteQuestion", new { Id = item.Id }))
         ))
 </div>
 
