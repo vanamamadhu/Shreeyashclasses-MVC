@@ -50,6 +50,7 @@ namespace Shreeyashclasses.Controllers
                 {
                     TempData["Status"] = "Success";
                     TempData["Message"] = "New question added successfully";
+                    newQuestions = null;
                     ModelState.Clear();
                 }
                 else {
@@ -81,12 +82,12 @@ namespace Shreeyashclasses.Controllers
             {
                 TempData["Status"] = "Success";
                 TempData["Message"] = "Record deleted successfully";
-                return RedirectToAction("CreateQuestion", "Questions");
+                return RedirectToAction("ViewQuestion", "Questions");
             }
             else {
                 TempData["Status"] = "Error";
                 TempData["Message"] = "Somthing went wrong!";
-                return RedirectToAction("ViewQuestion", "Questions"); ;
+                return View();
             }
         }
 
