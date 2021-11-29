@@ -25,10 +25,11 @@ namespace Shreeyashclasses.Shreeyash.DAC
                 OleDbCommand command = new OleDbCommand();
                 command.Connection = connection;
                 command.CommandText = "Select * from Users where USERNAME ='" + user.UserName + "' and PASSWORD ='" + user.Password + "'";
-
+                user = null;
                 OleDbDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
+                    user = new User();
                     user.Name = reader["NAME"] as string;
                     user.Surname = reader["SURNAME"] as string;
                     user.UserName = reader["USERNAME"] as string;
@@ -39,7 +40,7 @@ namespace Shreeyashclasses.Shreeyash.DAC
                     user.Subjects = reader["SUBJECTS"] as string;
                     user.Subjects = reader["ADDRESS"] as string;
                 }
-                if (count == 0)
+                if (user == null)
                 {
                     connection.Close();
                     return null;

@@ -32,7 +32,7 @@ namespace Shreeyashclasses.Controllers
         {
             if (user.UserName != null && user.Password != null)
             {
-                User userDetails = null;
+                User userDetails = new Models.User();
                 userDetails = _validate.ValidateUser(user);
 
                 if (userDetails != null)
