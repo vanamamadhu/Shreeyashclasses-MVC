@@ -26,7 +26,7 @@
                     @if (Session["Role"].ToString() == "Teacher")
                     {
                         <li class="nav-link"><i class="fa fa-home" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Home", "AdminDashboard", "Dashboard")</li>
-                        <li class="nav-link"><i class="fa fa-calendar-check-o" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Schedule Exam", "", "Exam")</li>
+                        <li class="nav-link"><i class="fa fa-calendar-check-o" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Schedule Exam", "ScheduleExam", "Exam")</li>
                         <li class="nav-link"><i class="fa fa-plus" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("Add Questions", "CreateQuestion", "Questions")</li>
                         <li class="nav-link"><i class="fa fa-question" aria-hidden="true" style="font-size:25px; margin-right:8px"></i>@Html.ActionLink("viewquestion", "ViewQuestion", "Questions")</li>
                     }

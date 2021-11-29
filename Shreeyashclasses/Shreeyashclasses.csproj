@@ -228,6 +228,7 @@
     <Content Include="Views\Questions\CreateQuestion.cshtml" />
     <Content Include="Views\Exam\viewQuestion.cshtml" />
     <Content Include="Views\Questions\ViewQuestion.cshtml" />
+    <Content Include="Views\Exam\ScheduleExam.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
