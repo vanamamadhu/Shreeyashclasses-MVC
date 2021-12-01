@@ -1,4 +1,5 @@
-﻿    using Shreeyashclasses.Models;
+﻿using Shreeyashclasses.Common;
+using Shreeyashclasses.Models;
 using Shreeyashclasses.Shreeyash.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Shreeyashclasses.Controllers
 {
+    [UserAuthenticationFilter]
     public class QuestionsController : Controller
     {
         private readonly IQuestions _questions;

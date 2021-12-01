@@ -24,6 +24,7 @@ namespace Shreeyashclasses.Controllers
         {
             TempData["Status"] = "";
             TempData["Message"] = "";
+            Session["Role"] = null;
             return View();
         }
 
