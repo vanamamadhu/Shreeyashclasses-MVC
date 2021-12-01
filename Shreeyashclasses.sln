@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shreeyashclasses", "Shreeyashclasses\Shreeyashclasses.csproj", "{A73E9EA3-942B-4471-A659-0F5921AE2A59}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shreeyashclasses.Tests", "Shreeyashclasses.Tests\Shreeyashclasses.Tests.csproj", "{2F770A67-B9F5-4E21-9C34-70452057A3A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{A73E9EA3-942B-4471-A659-0F5921AE2A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A73E9EA3-942B-4471-A659-0F5921AE2A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A73E9EA3-942B-4471-A659-0F5921AE2A59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F770A67-B9F5-4E21-9C34-70452057A3A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F770A67-B9F5-4E21-9C34-70452057A3A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F770A67-B9F5-4E21-9C34-70452057A3A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F770A67-B9F5-4E21-9C34-70452057A3A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

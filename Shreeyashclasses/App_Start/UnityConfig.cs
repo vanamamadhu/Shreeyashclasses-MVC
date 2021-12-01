@@ -14,8 +14,6 @@ namespace Shreeyashclasses
 
             container.RegisterType<IValidation, Validation>();
             container.RegisterType<IRegistration, Registration>();
-            container.RegisterType<IDashboard, Dashboard>();
-            container.RegisterType<IExam, Exam>();
             container.RegisterType<IQuestions, Questions>();
 
             // register all your components with the container here
